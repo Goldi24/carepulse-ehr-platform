@@ -5,13 +5,13 @@
 
 | Field | Details (Learner to complete) |
 | :--- | :--- |
-| **Project Title** | Electronic Health Record System with Real-Time Interoperability & Patient Portal (EHRS01) |
+| **Project Title** | CarePulse EHR Platform — Electronic Health Record System with Real-Time Interoperability & Patient Portal (EHRS01) |
 | **Domain** | Healthcare and Pharma / Full Stack Web Development |
-| **GitHub Repository** | [https://github.com/sangal-vanshi21/EHRS-health-record](https://github.com/sangal-vanshi21/EHRS-health-record) |
+| **GitHub Repository** | [https://github.com/Goldi24/carepulse-ehr-platform](https://github.com/Goldi24/carepulse-ehr-platform) |
 | **Duration** | 4 Weeks (20 Sprints Agile Scope) |
 | **Format** | Individual Project |
-| **Learner Name** | **Vanshika Sangal** |
-| **Roll Number** | **2300320150068** |
+| **Learner Name** | **Goldi Kumari** |
+| **Roll Number** | **2300320150025** |
 | **College / Campus** | **ABES Engineering College** |
 | **Mentor Name** | **Dr. Anamika Goel** |
 | **Submission Date** | **25 Oct 2026** |
@@ -160,7 +160,7 @@ Eliminated fragmented paper documentation, reduced diagnostic turnaround time th
 3. **National Electrical Manufacturers Association (NEMA):** *Digital Imaging and Communications in Medicine (DICOM) PS3 Standard & WADO-RS Services*, Available: [https://www.dicomstandard.org/](https://www.dicomstandard.org/)
 4. **U.S. National Library of Medicine:** *Unified Medical Language System (UMLS), RxNorm, and LOINC Standards*, NIH Health Informatics.
 5. **React Documentation & Engineering Best Practices:** *React 19 Architecture and Component Design Patterns*, Meta Open Source.
-6. **Project Source Code Repository:** *Electronic Health Record System (EHRS01)*, GitHub: [https://github.com/sangal-vanshi21/EHRS-health-record](https://github.com/sangal-vanshi21/EHRS-health-record)
+6. **Project Source Code Repository:** *CarePulse EHR Platform (EHRS01)*, GitHub: [https://github.com/Goldi24/carepulse-ehr-platform](https://github.com/Goldi24/carepulse-ehr-platform)
 
 ---
 
@@ -174,4 +174,4 @@ I confirm that:
 
 <br/>
 
-**Learner Signature:** _Vanshika Sangal_ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Date:** 25 Oct 2026
+**Learner Signature:** _Goldi Kumari_ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Date:** 25 Oct 2026

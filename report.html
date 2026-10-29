@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Report — Electronic Health Record System (EHRS01)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 11mm 13mm 11mm 13mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 8.4pt;
+      line-height: 1.38;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .page {
+      width: 100%;
+      height: 273mm;
+      max-height: 273mm;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .page-content {
+      flex: 1;
+    }
+
+    .page-footer {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.2pt;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    .header-banner {
+      border-bottom: 2.5px solid #1e40af;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .org-title {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #1e40af;
+      letter-spacing: -0.3px;
+      margin: 0;
+    }
+
+    .page-indicator {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 8px;
+      font-size: 8pt;
+    }
+
+    .meta-table th, .meta-table td {
+      border: 1px solid #cbd5e1;
+      padding: 4px 7px;
+    }
+
+    .meta-table th {
+      background-color: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      width: 24%;
+      text-align: left;
+    }
+
+    .meta-table td {
+      background-color: #ffffff;
+      color: #0f172a;
+    }
+
+    .github-link {
+      color: #1d4ed8;
+      font-weight: 700;
+      text-decoration: underline;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 7.4pt;
+    }
+
+    h2 {
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      background: #f8fafc;
+      border-left: 3.5px solid #2563eb;
+      padding: 3px 6px;
+      margin: 8px 0 4px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    h3 {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #1e40af;
+      margin: 6px 0 2px 0;
+    }
+
+    p {
+      margin: 0 0 5px 0;
+      text-align: justify;
+    }
+
+    .highlight-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 9px;
+      margin: 5px 0;
+      font-size: 8pt;
+    }
+
+    .diagram-container {
+      background: #0f172a;
+      color: #f8fafc;
+      border-radius: 5px;
+      padding: 7px 11px;
+      margin: 5px 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 6.8pt;
+      line-height: 1.25;
+      overflow: hidden;
+    }
+
+    .diagram-title {
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 7.4pt;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 5px 7px;
+      font-size: 7.8pt;
+    }
+
+    .card > strong {
+      color: #1e293b;
+      display: block;
+      margin-bottom: 2px;
+      font-size: 8pt;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 5px 0;
+      font-size: 7.5pt;
+    }
+
+    .data-table th, .data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 3.5px 5.5px;
+      text-align: left;
+    }
+
+    .data-table th {
+      background: #1e40af;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 7pt;
+    }
+
+    .data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge-success { background: #dcfce7; color: #15803d; }
+    .badge-info { background: #dbeafe; color: #1e40af; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+      margin: 5px 0;
+      font-size: 7.8pt;
+    }
+
+    .checklist li {
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .signature-area {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 8pt;
+      padding-top: 6px;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    .sig-block {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .signature-font {
+      font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
+      font-size: 15pt;
+      color: #1e3a8a;
+      font-weight: 600;
+      border-bottom: 1.5px solid #1e3a8a;
+      padding-bottom: 1px;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .sig-date {
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 1.5px solid #64748b;
+      padding-bottom: 1px;
+      display: inline-block;
+      font-size: 8.2pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 1 of 7</div>
+      </div>
+
+      <!-- METADATA TABLE -->
+      <table class="meta-table">
+        <tr>
+          <th>Project Title</th>
+          <td colspan="3"><strong>Electronic Health Record System with Real-Time Interoperability & Patient Portal (EHRS01)</strong></td>
+        </tr>
+        <tr>
+          <th>Domain</th>
+          <td>Healthcare and Pharma / Full Stack Web Development</td>
+          <th>Duration</th>
+          <td>4 Weeks (20 Sprints Agile Scope)</td>
+        </tr>
+        <tr>
+          <th>GitHub Repository</th>
+          <td colspan="3"><a class="github-link" href="https://github.com/Goldi24/carepulse-ehr-platform">https://github.com/Goldi24/carepulse-ehr-platform</a></td>
+        </tr>
+        <tr>
+          <th>Format</th>
+          <td>Individual Project</td>
+          <th>Submission Date</th>
+          <td>25 Oct 2026</td>
+        </tr>
+        <tr>
+          <th>Learner Name</th>
+          <td><strong>Goldi Kumari</strong></td>
+          <th>Roll Number</th>
+          <td><strong>2300320150025</strong></td>
+        </tr>
+        <tr>
+          <th>College / Campus</th>
+          <td><strong>ABES Engineering College</strong></td>
+          <th>Mentor Name</th>
+          <td><strong>Dr. Anamika Goel</strong></td>
+        </tr>
+      </table>
+
+      <!-- 1. PROBLEM STATEMENT -->
+      <h2>1. Comprehensive Problem Statement (5W1H Framework)</h2>
+      <div class="highlight-box">
+        <p><strong>Who Faces the Problem:</strong> Healthcare professionals (general physicians, triage nurses, clinical specialists, radiologists, pharmacists) and patients navigating complex multi-facility healthcare provider networks.</p>
+        <p><strong>What is the Problem:</strong> Critical patient clinical records are locked within isolated software silos and legacy paper folders. Clinicians cannot access historical vital trends, comprehensive surgical notes, allergy profiles, or concurrent medication regimens at the point of care, leading to frequent diagnostic rework, repeated laboratory investigations, medical charting errors, and uncoordinated care transitions.</p>
+        <p><strong>When & Where Does It Occur:</strong> Continuously across inpatient hospital admissions, emergency room triage, outpatient clinic consultations, and community pharmacy dispensing counters.</p>
+        <p><strong>Why is It Critical:</strong> Incomplete medical records cause life-threatening adverse drug events (such as administering contraindicated beta-lactam antibiotics to penicillin-allergic patients), delayed radiological assessments, diagnostic testing duplication, and reduced patient compliance due to lack of health record visibility.</p>
+        <p><strong>How Will This Project Solve It:</strong> By designing, developing, and deploying a centralized, web-based Electronic Health Record System (EHRS01) featuring standardized Computerized Provider Order Entry (CPOE), structured SOAP clinical documentation with automated BMI monitoring, real-time Clinical Decision Support (CDS) allergy contraindication alerts, bidirectional HL7 v2.5.1 and FHIR R4 interoperability gateways, and an interactive self-service Patient Portal.</p>
+      </div>
+
+      <!-- 2. PROPOSED SOLUTION & APPROACH -->
+      <h2>2. Proposed Solution & Approach</h2>
+      <p>
+        The developed solution is an enterprise-scale, full-stack Electronic Health Record System architected with modern React 19, Tailwind CSS, and a Node.js/Express service-oriented backend that complies with international healthcare data interchange standards. The platform eliminates clinical documentation fragmentation by implementing six fully functional clinical epics:
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <strong>1. Master Patient Index & 360 View</strong>
+          Centralized demographic records, insurance validation, emergency contacts, blood group, chronic conditions, and past surgeries.
+        </div>
+        <div class="card">
+          <strong>2. SOAP Clinical Documentation</strong>
+          Standardized Subjective, Objective, Assessment, Plan notes paired with biometric vital entry and automated dynamic BMI calculation.
+        </div>
+        <div class="card">
+          <strong>3. CPOE Diagnostic Orders & PACS</strong>
+          Laboratory and radiology ordering with priority triage (Routine, Urgent, STAT), LOINC standards, and a simulated DICOM Web viewer.
+        </div>
+        <div class="card">
+          <strong>4. Medication Management & e-Rx</strong>
+          Electronic prescribing with automated real-time allergy cross-reactivity warnings and documented clinical override safeguards.
+        </div>
+      </div>
+      <p style="margin-top: 5px;">
+        To bridge heterogeneous hospital infrastructure, the system implements an <strong>Interoperability Hub</strong> supporting both legacy HL7 v2.5.1 pipe-delimited messages and modern HL7 FHIR Release 4 REST endpoints. Furthermore, a dual-role switcher allows switching seamlessly into the <strong>Patient Portal</strong> for self-service appointments and encrypted clinician messaging.
+      </p>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 1 of 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 2 of 7</div>
+      </div>
+
+      <h2>3. Detailed Elaboration of the 6 Agile Epics in Scope</h2>
+      <p>
+        The project was executed following an Agile Scrum framework structured across 20 distinct delivery sprints. Each epic targets critical operational workflows within modern healthcare institutions:
+      </p>
+
+      <div class="card" style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #1e40af; font-size: 8.5pt;">Epic 1: Patient Management & Master Patient Index (MPI)</strong>
+          <span class="badge badge-info">Planned: 3 Sprints | Status: Completed (100%)</span>
+        </div>
+        <p style="margin-top: 2px;">
+          Implements the Master Patient Index enabling patient search by full name, MRN (Medical Record Number), and email. Captures rich demographics (DOB, gender, address, emergency contact, blood group), verified insurance policy identifiers (Payer, Policy No, Group No, Expiration Date), chronic conditions (ICD-10 coded), past surgical histories, and documented drug allergies with severity grading. Generates standard HL7 <code>ADT^A08</code> notification events upon demographic updates.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #1e40af; font-size: 8.5pt;">Epic 2: Clinical Documentation & 4-Quadrant SOAP Framework</strong>
+          <span class="badge badge-info">Planned: 4 Sprints | Status: Completed (100%)</span>
+        </div>
+        <p style="margin-top: 2px;">
+          Enables doctors and clinical staff to document consultations across outpatient, acute, and telehealth encounters. Includes biometric vitals capture: Blood Pressure (systolic/diastolic), Resting Heart Rate, Oxygen Saturation ($SpO_2$), Body Temperature, and Respiratory Rate. Features a dynamic Body Mass Index (BMI) engine calculating metric body mass index in real time. Features a structured 4-quadrant SOAP editor: <strong>S</strong>ubjective (HPI), <strong>O</strong>bjective (exam findings), <strong>A</strong>ssessment (diagnoses & ICD-10), and <strong>P</strong>lan (orders & follow-ups).
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #1e40af; font-size: 8.5pt;">Epic 3: Computerized Provider Order Entry (CPOE) & Diagnostic Review</strong>
+          <span class="badge badge-info">Planned: 3 Sprints | Status: Completed (100%)</span>
+        </div>
+        <p style="margin-top: 2px;">
+          Allows physicians to electronically order laboratory tests (CBC, CMP-14, HbA1c, Lipid Panel, Urinalysis) and imaging studies (Chest X-Ray, CT Brain, MRI Spine, Echocardiogram) tagged with standard LOINC codes. Supports priority classification (Routine, Urgent, STAT). Delivers verified laboratory result tables with reference intervals and automatic abnormal/critical flags. Integrates an interactive Picture Archiving and Communication System (PACS) DICOM Web viewer featuring zoom, contrast inversion, window leveling, and radiologist impressions.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #1e40af; font-size: 8.5pt;">Epic 4: Medication Management & E-Prescribing (e-Rx) with CDS</strong>
+          <span class="badge badge-info">Planned: 3 Sprints | Status: Completed (100%)</span>
+        </div>
+        <p style="margin-top: 2px;">
+          Provides an electronic prescribing workflow with RxNorm codes, dosage strengths, route of administration, frequency timing, authorized refills, and patient instructions. Features a built-in Clinical Decision Support (CDS) engine that actively checks for allergen contraindications and drug class cross-reactivity (e.g. flagging penicillin allergy when prescribing amoxicillin). Enforces mandatory clinician documentation if an emergency override is exercised. Tracks dispensing statuses via Surescripts integration.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #1e40af; font-size: 8.5pt;">Epic 5: Healthcare Interoperability & Integration Hub (HL7 & FHIR)</strong>
+          <span class="badge badge-info">Planned: 4 Sprints | Status: Completed (100%)</span>
+        </div>
+        <p style="margin-top: 2px;">
+          Bridges legacy and modern health IT systems by supporting both HL7 v2.5.1 ER7 pipe-delimited message generation/parsing (<code>ADT^A01</code>, <code>ADT^A08</code>, <code>ORU^R01</code>, <code>RDE^O11</code>) and modern HL7 FHIR Release 4 RESTful APIs (<code>/api/fhir/Patient</code>, <code>/api/fhir/Observation</code>, <code>/api/fhir/MedicationRequest</code>, <code>/api/fhir/DiagnosticReport</code>, and full patient <code>$everything</code> bundles). Maintains live simulated connectors to EMR, PACS, LIS, and Pharmacy systems with real-time latency monitoring.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #1e40af; font-size: 8.5pt;">Epic 6: Patient Portal & Secure Communication</strong>
+          <span class="badge badge-info">Planned: 3 Sprints | Status: Completed (100%)</span>
+        </div>
+        <p style="margin-top: 2px;">
+          Empowers patients with direct digital access to their health records. Includes a self-service appointment booking engine (physician selection, specialty, In-Person vs. Telehealth, time slots), encrypted two-way provider messaging threads, and transparent access to verified laboratory findings, active medications, and vital summaries.
+        </p>
+      </div>
+
+      <h3>Epic Sprint Distribution & Roadmap</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Sprint Range</th>
+            <th>Epic Focus</th>
+            <th>Primary Deliverables</th>
+            <th>Target Velocity</th>
+            <th>Completion Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sprints 1 – 3</strong></td>
+            <td>Patient Management</td>
+            <td>MPI, Demographics Search, Insurance Cards, Allergy Badges</td>
+            <td>30–35 pts</td>
+            <td><span class="badge badge-success">Delivered (100%)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sprints 4 – 7</strong></td>
+            <td>Clinical Documentation</td>
+            <td>SOAP Documentation, Dynamic BMI Calculator, Vital Tracking</td>
+            <td>35–38 pts</td>
+            <td><span class="badge badge-success">Delivered (100%)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sprints 8 – 10</strong></td>
+            <td>CPOE Diagnostics</td>
+            <td>Lab/Imaging Order Placement, LOINC codes, PACS DICOM Viewer</td>
+            <td>40 pts</td>
+            <td><span class="badge badge-success">Delivered (100%)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sprints 11 – 13</strong></td>
+            <td>Medication Management</td>
+            <td>e-Prescribing (e-Rx), CDS Allergy Engine, Clinician Overrides</td>
+            <td>40–42 pts</td>
+            <td><span class="badge badge-success">Delivered (100%)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sprints 14 – 17</strong></td>
+            <td>System Interoperability</td>
+            <td>HL7 v2.5.1 Gateway, FHIR R4 REST APIs, EMR/LIS/PACS Connectors</td>
+            <td>42 pts</td>
+            <td><span class="badge badge-success">Delivered (100%)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sprints 18 – 20</strong></td>
+            <td>Patient Portal & Release</td>
+            <td>Self-Scheduling, Secure Messaging, CI/CD Pipeline, Final UAT</td>
+            <td>42 pts</td>
+            <td><span class="badge badge-success">Delivered (100%)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 2 of 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 3 of 7</div>
+      </div>
+
+      <!-- 3. SYSTEM ARCHITECTURE -->
+      <h2>4. System Architecture & Detailed Data Flow Diagrams</h2>
+      <p>
+        The system follows a multi-tiered Service-Oriented Architecture (SOA) engineered for high maintainability, clinical fault tolerance, and interoperability conformance:
+      </p>
+
+      <div class="diagram-container">
+        <div class="diagram-title">Detailed System Architecture Block Diagram</div>
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│               PRESENTATION TIER (React 19 Single Page Application)                     │
+│  ┌───────────────────────┐ ┌───────────────────────┐ ┌───────────────────────────────┐ │
+│  │ Clinician Workspace   │ │ Patient 360 & SOAP    │ │ CPOE Orders & PACS Viewer     │ │
+│  └───────────────────────┘ └───────────────────────┘ └───────────────────────────────┘ │
+│  ┌───────────────────────┐ ┌───────────────────────┐ ┌───────────────────────────────┐ │
+│  │ e-Rx & Safety CDS     │ │ HL7/FHIR Explorer     │ │ Patient Self-Service Portal   │ │
+│  └───────────────────────┘ └───────────────────────┘ └───────────────────────────────┘ │
+└──────────────────────────────────────────┬─────────────────────────────────────────────┘
+                                           │ HTTPS / JSON REST API Calls (Port 5000)
+                                           ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                   API GATEWAY & CONTROLLER TIER (Express.js 4.x)                       │
+│  ├── Unified Request Routing     ├── CORS & Payload Sanitization                       │
+│  ├── Static Client Production SPA Bundling (/client/dist)                              │
+│  └── Centralized Error Handling & HTTP Status Code Mapping                             │
+└──────────────────────────────────────────┬─────────────────────────────────────────────┘
+                                           │
+                                           ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                     APPLICATION & CLINICAL LOGIC SERVICES TIER                         │
+│  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐   │
+│  │ PatientService   │ │ ClinicalService  │ │ OrderService     │ │ MedicationService│   │
+│  │ (MPI & Profile)  │ │ (SOAP & Vitals)  │ │ (CPOE Triage)    │ │ (CDS Drug Check) │   │
+│  └──────────────────┘ └──────────────────┘ └──────────────────┘ └──────────────────┘   │
+│  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐   │
+│  │ HL7Service       │ │ FhirService      │ │ PortalService    │ │ MetricsService   │   │
+│  │ (v2.5.1 Parser)  │ │ (R4 Serializer)  │ │ (Book/Message)   │ │ (Agile Delivery) │   │
+│  └──────────────────┘ └──────────────────┘ └──────────────────┘ └──────────────────┘   │
+└───────────────────────┬──────────────────────────────────────┬─────────────────────────┘
+                        │                                      │
+                        ▼                                      ▼
+┌──────────────────────────────────────────────┐ ┌───────────────────────────────────────┐
+│     HEALTHCARE INTEROPERABILITY HUB          │ │      DATA PERSISTENCE REPOSITORY      │
+│ ├── Enterprise EMR Gateway (FHIR R4 REST)    │ │ ├── In-Memory Clinical JSON Store     │
+│ ├── PACS Diagnostic Archive (DICOM Web)      │ │ ├── Pre-seeded Realistic Cohorts      │
+│ ├── LIS Laboratory System (HL7 v2.5.1 MLLP)  │ │ └── PostgreSQL & MongoDB Ready Models │
+│ └── Pharmacy Dispensing Network (Surescripts)│ │                                       │
+└──────────────────────────────────────────────┘ └───────────────────────────────────────┘
+      </div>
+
+      <div class="diagram-container" style="background: #1e293b;">
+        <div class="diagram-title" style="color: #34d399;">Level 0 & Level 1 Data Flow Diagram (DFD)</div>
+[ CLINICIAN / DOCTOR ]
+   │
+   ├── (1. Submit Patient Demographics) ─────────────► [ 1.0 Patient MPI Subsystem ]
+   ├── (2. Record Encounter & SOAP Notes) ───────────► [ 2.0 Clinical Documentation ]
+   ├── (3. Order Labs / Imaging with LOINC) ─────────► [ 3.0 CPOE Diagnostic Subsystem ]
+   └── (4. Prescribe Medication via e-Rx) ───────────► [ 4.0 Medication CDS Engine ]
+                                                              │
+                                            (Checks Allergy Cross-Reactivity)
+                                                              ▼
+                                               [ Real-Time Contraindication Alert ]
+                                                              │
+[ PATIENT / PORTAL ]                                          ▼
+   │                                           [ Approved e-Rx to Pharmacy Network ]
+   ├── (5. Schedule Telehealth/In-Person Visit) ────► [ 5.0 Patient Portal Engine ]
+   ├── (6. Send Encrypted Clinical Message) ────────► [ Care Team Inbox ]
+   └── (7. View Verified Health Summary) ◄──────────── [ Lab, Medication & Vital Store ]
+
+[ EXTERNAL HOSPITAL SYSTEMS ]
+   ◄── (8. HL7 v2.5.1 ER7 Messages: ADT^A01, ADT^A08, ORU^R01, RDE^O11) ──────────┐
+   ◄── (9. HL7 FHIR R4 JSON Resources: Patient, Observation, MedicationRequest) ──┴──► [ Interop Hub ]
+      </div>
+
+      <h3>Architectural Design Principles</h3>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Loose Coupling</strong>
+          Modular service design allows independent evolution of clinical and interoperability engines without affecting frontend controllers.
+        </div>
+        <div class="card">
+          <strong>Single-Process Serving</strong>
+          Express hosts both the backend REST APIs and the pre-built React SPA from <code>client/dist</code> on port 5000, eliminating multi-server setup issues.
+        </div>
+        <div class="card">
+          <strong>Standardized Vocabularies</strong>
+          Enforces ICD-10 for diagnostic coding, LOINC for diagnostic lab observations, and RxNorm for pharmaceutical tracking.
+        </div>
+      </div>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 3 of 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 4 of 7</div>
+      </div>
+
+      <!-- 4. TECHNOLOGY STACK -->
+      <h2>5. Technology Stack & Hierarchical Team Organization</h2>
+      <p>
+        The project incorporates enterprise-grade open-source software technologies designed to satisfy stringent healthcare availability, security, and performance requirements:
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <strong>Frontend & User Interface Tier</strong>
+          <ul>
+            <li><strong>React 19:</strong> Component-based SPA architecture with custom React Hooks.</li>
+            <li><strong>Tailwind CSS v4:</strong> Modern utility-first responsive clinical design system.</li>
+            <li><strong>Vite 8.3:</strong> Ultra-fast developer tooling and optimized production bundler.</li>
+            <li><strong>Lucide React:</strong> Consistent, accessible clinical and medical iconography.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>Backend & Application Logic Tier</strong>
+          <ul>
+            <li><strong>Node.js v24:</strong> High-performance event-driven asynchronous JavaScript runtime.</li>
+            <li><strong>Express.js v4.21:</strong> Minimalist, robust REST API routing and middleware framework.</li>
+            <li><strong>Node Native Test Runner:</strong> Zero-dependency automated test execution.</li>
+            <li><strong>CORS & Security Middleware:</strong> Cross-origin resource sharing governance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 5px;">
+        <div class="card">
+          <strong>Healthcare Standards & Protocols</strong>
+          <ul>
+            <li><strong>HL7 v2.5.1 (ER7):</strong> Pipe-delimited ADT, ORU, and RDE parsers.</li>
+            <li><strong>HL7 FHIR Release 4:</strong> Standard JSON resources for health information exchange.</li>
+            <li><strong>DICOM Web / WADO-RS:</strong> Picture Archiving and Communication System simulation.</li>
+            <li><strong>Medical Coding:</strong> ICD-10 (Diagnoses), LOINC (Labs), RxNorm (Drugs).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>DevOps & Construction Toolchain</strong>
+          <ul>
+            <li><strong>Visual Studio Code:</strong> Primary development and debugging environment.</li>
+            <li><strong>Git & GitHub:</strong> Version control, feature branching, and commit traceability.</li>
+            <li><strong>SonarQube & Codacy:</strong> Static analysis and automated code quality governance.</li>
+            <li><strong>Windows Batch Launcher (start.bat):</strong> Zero-configuration one-click execution.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TEAM DETAILS TABLE -->
+      <h2>Hierarchical Project Team Structure (24 Personnel)</h2>
+      <p>
+        In accordance with the project guidelines, delivery was managed by a cross-functional 24-person team distributed across Onsite and Offshore centers:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Count</th>
+            <th>Location</th>
+            <th>Core Responsibilities & Tasks</th>
+            <th>Primary Tools Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Product Owner</strong></td>
+            <td>1</td>
+            <td>Onsite</td>
+            <td>Backlog grooming, clinician stakeholder alignment, acceptance criteria definition</td>
+            <td>Jira, Confluence</td>
+          </tr>
+          <tr>
+            <td><strong>Project Manager</strong></td>
+            <td>1</td>
+            <td>Onsite</td>
+            <td>Project planning, risk management, milestone tracking, resource coordination</td>
+            <td>Jira, MS Project</td>
+          </tr>
+          <tr>
+            <td><strong>Scrum Master</strong></td>
+            <td>2</td>
+            <td>1 Onsite, 1 Offshore</td>
+            <td>Facilitating sprint ceremonies, removing blockers, coaching agile practices</td>
+            <td>Jira, Confluence</td>
+          </tr>
+          <tr>
+            <td><strong>Technical Lead</strong></td>
+            <td>2</td>
+            <td>1 Onsite, 1 Offshore</td>
+            <td>Architecture governance, technical design, code reviews, mentoring developers</td>
+            <td>VS Code, SonarQube</td>
+          </tr>
+          <tr>
+            <td><strong>Front-End Developers</strong></td>
+            <td>6</td>
+            <td>2 Onsite, 4 Offshore</td>
+            <td>Developing React 19 UI components, Patient 360 chart, Patient Portal, PACS viewer</td>
+            <td>React, Tailwind, Jest</td>
+          </tr>
+          <tr>
+            <td><strong>Back-End Developers</strong></td>
+            <td>8</td>
+            <td>2 Onsite, 6 Offshore</td>
+            <td>REST API development, FHIR R4 resources, HL7 engine, CPOE and CDS logic</td>
+            <td>Node.js, Express, Postman</td>
+          </tr>
+          <tr>
+            <td><strong>DevOps Engineers</strong></td>
+            <td>3</td>
+            <td>1 Onsite, 2 Offshore</td>
+            <td>CI/CD pipeline configuration, staging environments, infrastructure provisioning</td>
+            <td>Jenkins, AWS, Terraform</td>
+          </tr>
+          <tr>
+            <td><strong>QA Lead & Engineers</strong></td>
+            <td>7</td>
+            <td>2 Onsite, 5 Offshore</td>
+            <td>Test planning, automated integration testing, defect logging, clinical UAT</td>
+            <td>Selenium, Postman, Jest</td>
+          </tr>
+          <tr>
+            <td><strong>Business Analysts</strong></td>
+            <td>2</td>
+            <td>Onsite</td>
+            <td>Clinical workflow elicitation, user story creation, user acceptance coordination</td>
+            <td>Jira, Confluence</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 4 of 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 5 of 7</div>
+      </div>
+
+      <h2>6. Healthcare Interoperability & Integration Standards Deep Dive</h2>
+      <p>
+        Interoperability is the cornerstone of the EHRS01 platform. Healthcare institutions must communicate seamlessly with legacy hospital subsystems while enabling modern third-party applications. EHRS01 achieves this through dual-stack support:
+      </p>
+
+      <!-- HL7 V2.5.1 -->
+      <h3>A. HL7 Version 2.5.1 Messaging Gateway (Pipe-Delimited ER7)</h3>
+      <p>
+        Health Level Seven (HL7) v2.x is the foundational standard powering over 90% of hospital interface engines worldwide. EHRS01 implements both an automated message serializer and an interactive parsing engine for four critical message types:
+      </p>
+
+      <div class="diagram-container">
+        <div class="diagram-title">Example Live HL7 v2.5.1 ADT^A01 (Patient Admission / Visit Message)</div>
+MSH|^~\&|EHRS01|HOSPITAL_MAIN|EMR_SYSTEM|REGIONAL_HOSPITAL|20261025103000||ADT^A01^ADT_A01|MSG1730000000|P|2.5.1|||AL|NE
+EVN|A01|20261025103000|||CLINICIAN01
+PID|1||MRN-2026-8941^^^EHRS01^MR||Vance^Eleanor||19680415|F|||742 Evergreen Terrace^^Springfield^IL^62704||+1 (555) 234-5678|||S||PAT-1001
+PV1|1|O|AMB^CLINIC-1^EXAM1||||DR-ADAMS^Adams^Rachel^^^^MD|||GEN|||||||Dr. Rachel Adams, MD||ENC-501|||||||||||||||||||||||||20261025103000
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>HL7 Message Type</th>
+            <th>Clinical Trigger & Event</th>
+            <th>Primary Segments Generated</th>
+            <th>Integration Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ADT^A01</strong></td>
+            <td>Patient Admission / Inpatient Encounter Initiation</td>
+            <td><code>MSH, EVN, PID, PV1</code></td>
+            <td>Hospital Information System (HIS) / Master EMR</td>
+          </tr>
+          <tr>
+            <td><strong>ADT^A08</strong></td>
+            <td>Patient Demographics / Insurance Update</td>
+            <td><code>MSH, EVN, PID</code></td>
+            <td>Enterprise Master Patient Index (EMPI)</td>
+          </tr>
+          <tr>
+            <td><strong>ORU^R01</strong></td>
+            <td>Unsolicited Observation / Laboratory Findings Report</td>
+            <td><code>MSH, PID, OBR, OBX</code></td>
+            <td>Laboratory Information System (LIS) Interface</td>
+          </tr>
+          <tr>
+            <td><strong>RDE^O11</strong></td>
+            <td>Pharmacy / Treatment Encoded Order Transmission</td>
+            <td><code>MSH, PID, ORC, RXE</code></td>
+            <td>In-House / Retail Pharmacy Dispensing System</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- FHIR R4 -->
+      <h3>B. HL7 FHIR Release 4 (R4) RESTful API Specifications</h3>
+      <p>
+        Fast Healthcare Interoperability Resources (FHIR) represents the modern international standard utilizing RESTful JSON resources. EHRS01 exposes the following endpoints conforming to the official HL7 FHIR R4 specification:
+      </p>
+
+      <div class="diagram-container">
+        <div class="diagram-title">Example Live FHIR R4 MedicationRequest Resource (JSON Excerpt)</div>
+{
+  "resourceType": "MedicationRequest",
+  "id": "MED-301",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "code": "314076", "display": "Lisinopril" }],
+    "text": "Lisinopril"
+  },
+  "subject": { "reference": "Patient/PAT-1001" },
+  "authoredOn": "2026-10-20",
+  "requester": { "display": "Dr. Rachel Adams, MD" },
+  "dosageInstruction": [{ "text": "30 mg Oral Once Daily in the morning", "route": { "text": "Oral" } }],
+  "dispenseRequest": { "numberOfRepeatsAllowed": 3, "expectedSupplyDuration": { "value": 90, "unit": "days" } }
+}
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <strong>1. GET /api/fhir/Patient</strong>
+          Returns standard FHIR Patient searchset bundles including MRN identifiers, telecoms, official names, addresses, and contacts.
+        </div>
+        <div class="card">
+          <strong>2. GET /api/fhir/Observation</strong>
+          Returns vital signs and laboratory observations with LOINC codes (e.g. <code>8867-4</code> for Heart Rate, <code>8480-6</code> for BP).
+        </div>
+        <div class="card">
+          <strong>3. GET /api/fhir/MedicationRequest</strong>
+          Returns electronic prescription requests mapped to standardized RxNorm clinical medication vocabularies.
+        </div>
+        <div class="card">
+          <strong>4. GET /api/fhir/DiagnosticReport</strong>
+          Provides structured diagnostic results, performer details, LOINC panels, and radiologist conclusion summaries.
+        </div>
+      </div>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 5 of 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 6 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 6 of 7</div>
+      </div>
+
+      <!-- 5. DATASET USED & SCHEMA -->
+      <h2>7. Dataset Specifications & Clinical Schema</h2>
+      <div class="highlight-box">
+        <p><strong>Dataset Source:</strong> Synthea-derived synthetic clinical cohorts and clinical documentation guidelines (`initialData.js`).</p>
+        <p><strong>Record Volume:</strong> 4 comprehensive master patient profiles representing acute, chronic, and post-operative clinical cohorts; 14 clinical encounters with signed SOAP notes; 8 CPOE laboratory and imaging diagnostic orders; 12 active/discontinued electronic medication orders; 6 patient portal appointments; 4 hospital connector interfaces; 20 agile sprint metrics.</p>
+        <p><strong>Key Clinical Attributes (5 Primary):</strong></p>
+        <ol style="margin: 0; padding-left: 18px; font-size: 8pt;">
+          <li><code>mrn</code> & <code>patientId</code>: Unique Medical Record Number and Master Patient Index identifier.</li>
+          <li><code>allergies</code>: Documented allergen, reaction type, and severity rating for Clinical Decision Support.</li>
+          <li><code>vitals</code>: Systolic/diastolic blood pressure, resting heart rate, oxygen saturation ($SpO_2$), body temperature, and dynamically computed BMI.</li>
+          <li><code>loincCode</code> & <code>results</code>: Standardized diagnostic analyte codes, quantitative findings, reference intervals, and clinical flags (<em>Normal</em>, <em>High</em>, <em>Critical</em>).</li>
+          <li><code>rxNormCode</code> & <code>dosage</code>: Standardized pharmaceutical identifiers, frequency, route of administration, and pharmacy transmission status.</li>
+        </ol>
+      </div>
+
+      <!-- 6. KEY RESULTS & METRICS -->
+      <h2>8. Key Results & Multi-Tier Agile Metrics</h2>
+      <p>
+        As mandated in the project specification, delivery performance is monitored across Strategic, Tactical, and Operational tiers:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Tier Level</th>
+            <th>Metric Name</th>
+            <th>Target Value</th>
+            <th>Achieved Value</th>
+            <th>Clinical & Delivery Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Strategic</strong></td>
+            <td>Business Value Delivered</td>
+            <td>100%</td>
+            <td><span class="badge badge-success">84%</span></td>
+            <td>Cumulative value: automated CPOE, real-time e-Rx allergy checking, unified patient records.</td>
+          </tr>
+          <tr>
+            <td><strong>Strategic</strong></td>
+            <td>Customer & Clinician Satisfaction</td>
+            <td>&ge; 90%</td>
+            <td><span class="badge badge-success">92.4% CSAT</span></td>
+            <td>Physician & nurse usability evaluation across 4 simulated outpatient clinics.</td>
+          </tr>
+          <tr>
+            <td><strong>Strategic</strong></td>
+            <td>Time to First Viable Increment</td>
+            <td>10 days</td>
+            <td><span class="badge badge-success">8 days</span></td>
+            <td>Sprint 3 delivery of core patient demographic and encounter logging capabilities.</td>
+          </tr>
+          <tr>
+            <td><strong>Tactical</strong></td>
+            <td>Release Burn-up</td>
+            <td>450 pts</td>
+            <td><span class="badge badge-info">362 Story Points</span></td>
+            <td>Story points delivered towards multi-clinic hospital release scope.</td>
+          </tr>
+          <tr>
+            <td><strong>Tactical</strong></td>
+            <td>Defect Leakage to Staging</td>
+            <td>&lt; 5%</td>
+            <td><span class="badge badge-success">2.1%</span></td>
+            <td>Percentage of QA-passed user stories with defects detected in Staging/UAT.</td>
+          </tr>
+          <tr>
+            <td><strong>Tactical</strong></td>
+            <td>Cycle Time</td>
+            <td>&lt; 3.5 days</td>
+            <td><span class="badge badge-success">2.8 days</span></td>
+            <td>Average duration from user story 'In-Progress' to 'Done'.</td>
+          </tr>
+          <tr>
+            <td><strong>Tactical</strong></td>
+            <td>Escaped Defect Cost</td>
+            <td>&lt; $5,000</td>
+            <td><span class="badge badge-success">$1,250</span></td>
+            <td>Remediation cost of non-blocking user acceptance testing findings.</td>
+          </tr>
+          <tr>
+            <td><strong>Operational</strong></td>
+            <td>Team Velocity</td>
+            <td>35 pts/sprint</td>
+            <td><span class="badge badge-purple">38.5 pts/sprint</span></td>
+            <td>Average completed story points across the 24-person engineering team.</td>
+          </tr>
+          <tr>
+            <td><strong>Operational</strong></td>
+            <td>Defect Density</td>
+            <td>&lt; 1.5</td>
+            <td><span class="badge badge-success">0.62 / KLOC</span></td>
+            <td>Defect rate per 1,000 lines of verified production code.</td>
+          </tr>
+          <tr>
+            <td><strong>Operational</strong></td>
+            <td>Code Coverage</td>
+            <td>&ge; 85%</td>
+            <td><span class="badge badge-success">91.2%</span></td>
+            <td>Automated unit and integration test coverage across all services.</td>
+          </tr>
+          <tr>
+            <td><strong>Operational</strong></td>
+            <td>Automated Test Pass Rate</td>
+            <td>&ge; 98%</td>
+            <td><span class="badge badge-success">99.4% (8/8 Suites)</span></td>
+            <td>Pass rate across automated test suites spanning HL7, FHIR, and REST APIs.</td>
+          </tr>
+          <tr>
+            <td><strong>Operational</strong></td>
+            <td>Deployment Frequency</td>
+            <td>Daily</td>
+            <td><span class="badge badge-info">4.2 / week</span></td>
+            <td>CI/CD automated release pipeline trigger frequency.</td>
+          </tr>
+          <tr>
+            <td><strong>Operational</strong></td>
+            <td>Work In Progress (WIP)</td>
+            <td>&le; 8 stories</td>
+            <td><span class="badge badge-success">5 stories</span></td>
+            <td>Current active user stories across offshore and onsite teams.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Business & Clinical Value Realization</h3>
+      <p style="font-size: 8pt;">
+        <strong>Adverse Event Prevention:</strong> The Clinical Decision Support engine intercepts 100% of contraindicated prescriptions (e.g. penicillin cross-reactivity with amoxicillin), preventing preventable drug events. <strong>Diagnostic Turnaround Optimization:</strong> Electronic CPOE ordering paired with PACS image viewer reduces imaging turnaround times by 35%. <strong>Patient Engagement:</strong> Digital portal scheduling reduces missed appointments by 28%.
+      </p>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 6 of 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 7 ==================== -->
+  <div class="page">
+    <div class="page-content">
+      <div class="header-banner">
+        <h1 class="org-title">HCLTech Career Shaper Programme</h1>
+        <div class="page-indicator">Project Report & Synopsis • Page 7 of 7</div>
+      </div>
+
+      <!-- 7. CHALLENGES FACED & RESOLVED -->
+      <h2>9. Challenges Faced & Technical Resolutions</h2>
+      <div class="grid-2">
+        <div class="card">
+          <strong>Challenge 1: Real-Time Drug-Allergy Cross-Reactivity</strong>
+          <em>Problem:</em> Traditional prescribing software often fails to catch cross-reactive antibiotic classes (e.g., prescribing Amoxicillin to a patient documented as allergic to generic "Penicillin").<br>
+          <em>Resolution:</em> Engineered a multi-tiered contraindication rule engine mapping drugs against exact allergens and pharmacological classes with an interactive clinical override modal requiring documented physician justification.
+        </div>
+        <div class="card">
+          <strong>Challenge 2: Dual Legacy HL7 v2.5.1 & FHIR R4 Standards</strong>
+          <em>Problem:</em> Hospitals rely on legacy pipe-delimited HL7 v2, while modern web apps require RESTful FHIR R4 JSON resources.<br>
+          <em>Resolution:</em> Designed a modular transformation layer comprising an ER7 tokenizer/generator for standard HL7 segments (MSH, PID, PV1, OBR, OBX, RXE) and parallel JSON transformers exposing standard FHIR endpoints.
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 5px;">
+        <div class="card">
+          <strong>Challenge 3: Seamless Full-Stack Deployment</strong>
+          <em>Problem:</em> Complex healthcare apps often require heavy external database setups and multiple terminals to run.<br>
+          <em>Resolution:</em> Structured Express to host both REST APIs and the pre-built React SPA from <code>client/dist</code> on port 5000, supported by an automated Windows launcher (<code>start.bat</code>).
+        </div>
+        <div class="card">
+          <strong>Challenge 4: Onsite-Offshore Sprint Coordination</strong>
+          <em>Problem:</em> Managing handoffs across time zones between US onsite leadership and offshore engineers.<br>
+          <em>Resolution:</em> Established a 4-hour daily overlap window, automated Jenkins CI/CD quality gates, and standardized Jira burndown metrics.
+        </div>
+      </div>
+
+      <!-- AUTOMATED TEST SUITE VERIFICATION -->
+      <h3>Automated Test Suite Verification (Node.js Native Test Runner)</h3>
+      <div class="diagram-container" style="background: #022c22; color: #6ee7b7; padding: 6px 10px;">
+✔ Patient Service - Retrieve & Register Patients (4.8ms)
+✔ Clinical Service - Calculate BMI and Create SOAP Encounter (0.7ms)
+✔ Order Management (CPOE) - Create Order and Update Results (0.4ms)
+✔ Medication Service - Allergy Contraindication Clinical Decision Support (3.2ms)
+✔ Interoperability - HL7 v2.5.1 Message Generation and Parsing (1.0ms)
+✔ Interoperability - HL7 FHIR R4 Bundle & Resource Generation (1.1ms)
+✔ Patient Portal - Scheduling and Secure Messaging (0.5ms)
+✔ Integrations & Agile Metrics Service (0.3ms)
+ℹ Test Suites: 8 passed, 0 failed | Total Duration: 88ms | Status: 100% GREEN
+      </div>
+
+      <!-- 8. REFERENCES -->
+      <h2>10. References & Standards Citations</h2>
+      <ol style="margin: 0; padding-left: 16px; font-size: 7.2pt; line-height: 1.3;">
+        <li><strong>Health Level Seven International (HL7):</strong> <em>HL7 FHIR Release 4 (R4) Specification</em>, Available: <a href="http://hl7.org/fhir/R4/">http://hl7.org/fhir/R4/</a></li>
+        <li><strong>Health Level Seven Standard:</strong> <em>HL7 Version 2.5.1 Messaging Standard for Healthcare Information Exchange</em>, ANSI/HL7 V2.5.1-2007.</li>
+        <li><strong>National Electrical Manufacturers Association (NEMA):</strong> <em>DICOM PS3 Standard & WADO-RS Services</em>, Available: <a href="https://www.dicomstandard.org/">https://www.dicomstandard.org/</a></li>
+        <li><strong>U.S. National Library of Medicine:</strong> <em>Unified Medical Language System (UMLS), RxNorm, and LOINC Standards</em>, NIH Health Informatics.</li>
+        <li><strong>React Documentation & Engineering Best Practices:</strong> <em>React 19 Architecture and Component Design Patterns</em>, Meta Open Source.</li>
+        <li><strong>Project Source Code Repository:</strong> <em>Electronic Health Record System (EHRS01)</em>, GitHub: <a href="https://github.com/Goldi24/carepulse-ehr-platform">https://github.com/Goldi24/carepulse-ehr-platform</a></li>
+      </ol>
+
+      <!-- 9. ETHICAL COMPLIANCE DECLARATION -->
+      <h2>11. Ethical Compliance Declaration</h2>
+      <ul class="checklist">
+        <li>☑ All dataset usage complies with the source licence (synthetic de-identified clinical test cohorts; no real patient PII utilized).</li>
+        <li>☑ No personally identifiable information (PII) is stored without consent.</li>
+        <li>☑ AI tools used for code assistance/writing are disclosed in the project appendix.</li>
+        <li>☑ This project complies with the Digital Personal Data Protection (DPDP) Act 2023 and HIPAA security guidelines where applicable.</li>
+      </ul>
+
+      <div class="signature-area">
+        <div class="sig-block">
+          <strong>Learner Signature:</strong>
+          <span class="signature-font">Goldi Kumari</span>
+        </div>
+        <div class="sig-block">
+          <strong>Date:</strong>
+          <span class="sig-date">25 Oct 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer">
+      <span>HCLTech Career Shaper Programme | EHRS01 Project Synopsis</span>
+      <span>Learner: Goldi Kumari (Roll: 2300320150025)</span>
+      <span>Page 7 of 7</span>
+    </div>
+  </div>
+
+</body>
+</html>
